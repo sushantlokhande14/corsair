@@ -28,7 +28,7 @@ export const listChanged: SharepointWebhooks['listChanged'] = {
 			};
 		}
 
-		const clientState = ctx.options?.webhookClientState;
+		const clientState = ctx.key;
 		const verification = verifySharepointWebhookSignature(request, clientState);
 		if (!verification.valid) {
 			return {

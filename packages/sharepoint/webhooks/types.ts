@@ -100,8 +100,7 @@ export function verifySharepointWebhookSignature(
 	clientState?: string,
 ): { valid: boolean; error?: string } {
 	if (!clientState) {
-		// No secret configured; skip verification
-		return { valid: true };
+		return { valid: false, error: 'Missing client state' };
 	}
 
 	const notifications = request.payload?.value;
